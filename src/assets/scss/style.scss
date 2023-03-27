@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  max-width: 1440px;
+  overflow-y: hidden;
+  background: #d9a7c7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #fffcdc, #d9a7c7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #fffcdc, #d9a7c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+@media screen and (max-width: 1440px) {
+  body {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1441px) {
+  body {
+    width: 1440px;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+}

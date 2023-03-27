@@ -1,0 +1,9 @@
+.filters-list::-webkit-scrollbar {
+  background-color: #eee;
+  width: 0.4rem;
+  cursor: pointer;
+}
+
+.filters-list::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+}

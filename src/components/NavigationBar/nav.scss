@@ -1,0 +1,29 @@
+.nav-slide-in {
+  animation: nav-slide-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.nav-slide-out {
+  animation: nav-slide-out;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes nav-slide-in {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%)
+  }
+}
+
+@keyframes nav-slide-out {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%)
+  }
+}

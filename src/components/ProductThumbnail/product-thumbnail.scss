@@ -1,0 +1,14 @@
+.slide-up {
+  animation: slideup;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideup {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
