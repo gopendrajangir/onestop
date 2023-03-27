@@ -33,7 +33,7 @@ const ReviewImagesSlider: React.FC<ReviewImagesSliderProps> = ({
     <Modal onClose={onClose}>
       <div className="h-[50rem] w-[40rem] relative">
         <ReviewImagesCarousel
-          className="bg-slate-900"
+          className="bg-slate-900 rounded-md md:rounded-none"
           images={getReviewImages(reviews)}
           callback={(id) => setActiveIdx(id)}
           activeIdx={idx}
@@ -42,7 +42,7 @@ const ReviewImagesSlider: React.FC<ReviewImagesSliderProps> = ({
         />
         <button
           onClick={() => onClose()}
-          className="z-10 absolute top-3 left-3 w-12 h-12 rounded-full bg-slate-800 bg-opacity-80 flex items-center justify-center"
+          className="absolute top-3 left-3 w-12 h-12 rounded-full bg-slate-800 bg-opacity-80 flex items-center justify-center"
         >
           <ClearIcon className="w-8 h-8 fill-white" />
         </button>

@@ -75,7 +75,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
   const addedToBag = sizeState[selectedSize];
 
   return (
-    <div className="p-10">
+    <div className="p-5 md:p-10">
       <BreadCrumb analytics={product.analytics} isSingleProduct />
       <div className="mt-10 flex flex-col md:flex-row gap-y-10">
         <ProductImages images={albums[0].images} />
@@ -191,7 +191,7 @@ const SingleProduct: React.FC<SingleProductProps> = ({ product }) => {
                 <RatingsIcon className="w-8" />
               </h5>
               <div className="mt-14">
-                <div className="flex gap-x-20">
+                <div className="flex justify-between md:gap-x-20">
                   <RatingStatus
                     rating={ratings.averageRating}
                     iconClassName="!h-10"

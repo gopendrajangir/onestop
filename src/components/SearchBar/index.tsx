@@ -51,7 +51,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ className }) => {
     <form
       aria-label="Signup form"
       className={cx(
-        'flex relative bg-violet-50 items-center rounded w-[32rem]',
+        'flex relative bg-violet-50 items-center rounded',
         className
       )}
       onSubmit={(e) => {

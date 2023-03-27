@@ -58,7 +58,6 @@ export const updateProfile = createAsyncThunk<IProfile, Partial<IProfile>>('prof
 export const addNewAddress = createAsyncThunk<IProfile, IAddress>('profile/addNewAddress', async (address, { dispatch }) => {
   try {
 
-    console.log(address);
 
     const response = await axios.post('/users/addresses', {
       address

@@ -9,13 +9,13 @@ interface NavLinksProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const NavLinks: React.FC<NavLinksProps> = ({ className }) => {
   return (
-    <div className={cx('z-50 ml-auto mr-auto flex gap-x-12 h-full', className)}>
+    <div className={cx('ml-auto mr-auto flex gap-x-12 h-full', className)}>
       {navData.map((navItem) => {
         return (
           <div className="h-full flex items-center" key={navItem.title}>
             <div
               className={cx(
-                'group peer h-full w-full border-b-4 border-b-transparent',
+                'group peer h-full w-full border-b-4 border-b-transparent relative z-10',
                 navItem.borderColor
               )}
             >
@@ -25,7 +25,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ className }) => {
               >
                 {navItem.title}
               </NavLink>
-              <div className="z-10 fixed left-1/2 -translate-x-1/2 top-28 hidden group-hover:flex max-h-[80%] rounded-b overflow-x-auto overflow-y-auto max-w-[90%] shadow-inner bg-white">
+              <div className="fixed left-1/2 -translate-x-1/2 top-28 hidden group-hover:flex max-h-[80%] rounded-b overflow-x-auto overflow-y-auto max-w-[90%] shadow-inner bg-white">
                 {navItem.groups.map((group, i) => {
                   return (
                     <div
@@ -75,7 +75,7 @@ const NavLinks: React.FC<NavLinksProps> = ({ className }) => {
                 })}
               </div>
             </div>
-            <div className="absolute left-1/2 -translate-x-1/2 w-full max-w-[1440px] h-[calc(100vh-7rem)] top-28 rounded hidden peer-hover:flex flex-col items-center bg-slate-900 bg-opacity-30"></div>
+            <div className="fixed left-1/2 -translate-x-1/2 w-screen max-w-screen lg:max-w-[1440px] h-[calc(100vh-7rem)] top-28 rounded hidden peer-hover:flex flex-col items-center bg-slate-900 bg-opacity-30"></div>
           </div>
         );
       })}

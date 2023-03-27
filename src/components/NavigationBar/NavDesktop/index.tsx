@@ -20,7 +20,7 @@ const NavDesktop: React.FC<NavDesktopProps> = ({ className }) => {
   return (
     <nav
       className={cx(
-        'hidden lg:flex z-50 px-10 h-28 w-full items-center text-md bg-white border-b',
+        'hidden lg:flex px-10 h-28 w-full items-center text-md bg-white border-b',
         className
       )}
     >

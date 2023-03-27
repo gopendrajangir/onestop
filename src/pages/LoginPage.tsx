@@ -7,7 +7,7 @@ interface LoginPageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const LoginPage: React.FC<LoginPageProps> = (props) => {
   return (
-    <div className="bg-slate-100 flex justify-center items-center py-24">
+    <div className="bg-slate-100 min-h-screen flex justify-center items-center py-24">
       <div className="flex rounded-[0.5rem] overflow-hidden shadow-lg border">
         <div className="relative hidden md:flex justify-center items-center">
           <img
@@ -17,6 +17,9 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
           />
           <div className="w-full h-full absolute top-0 left-0 bg-violet-900 bg-opacity-10"></div>
           <div className="absolute p-20 pr-0 h-full">
+            <h2 className="hidden md:block mb-10 text-[4.8rem] text-slate-50">
+              Login / Signup
+            </h2>
             <h5 className="text-slate-100 mr-20">
               "Fashion is the armor to survive the reality of everyday life"
             </h5>
@@ -25,7 +28,7 @@ const LoginPage: React.FC<LoginPageProps> = (props) => {
             </h2>
           </div>
         </div>
-        <div className="p-20 flex flex-col justify-center bg-white z-10">
+        <div className="p-20 flex flex-col justify-center bg-white">
           <Login />
         </div>
       </div>

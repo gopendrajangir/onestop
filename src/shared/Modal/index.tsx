@@ -33,7 +33,7 @@ const Modal: React.FC<ModalProps> = ({
     <div
       className={cx(
         className,
-        'fixed flex justify-center items-center top-0 left-1/2 -translate-x-1/2 w-screen lg:max-w-[1440px] h-screen z-50'
+        'fixed z-10 flex justify-center items-center top-0 left-1/2 -translate-x-1/2 w-screen lg:max-w-[1440px] h-screen'
       )}
     >
       <div
@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({
         <button
           onClick={() => onClose()}
           className={cx(
-            'z-10 absolute top-3 left-3 w-12 h-12 fill-white rounded-full bg-slate-800 bg-opacity-80 flex items-center justify-center',
+            'absolute top-3 left-3 w-12 h-12 fill-white rounded-full bg-slate-800 bg-opacity-80 flex items-center justify-center',
             {
               'left-auto right-3': closeButtonPosition === 'top-right',
             },

@@ -34,11 +34,11 @@ const BasicInfo: React.FC<BasicInfoProps> = ({ className, profile }) => {
   const { name, phone, email, gender } = profile;
 
   return (
-    <div className={cx(className, 'px-10 py-5')}>
+    <div className={cx(className, 'px-5 sm:px-10 py-5')}>
       <h4 className="capitalize leading-tight">Basic Info</h4>
       <Hr />
       <div className="flex flex-col items-center">
-        <div className="text-center w-full grid-cols-[100px,_max-content] grid md:grid-cols-2 justify-items-start text-sm gap-x-20 gap-y-5 py-10">
+        <div className="text-center w-full grid-cols-[max-content,_max-content] sm:grid-cols-[100px,_max-content] grid md:grid-cols-2 justify-items-start text-sm gap-x-5 sm:gap-x-20 gap-y-5 py-10">
           <span>Full Name</span> <InfoValue value={name} />
           <span>Mobile Number</span> <InfoValue value={phone} />
           <span>Email ID</span>{' '}

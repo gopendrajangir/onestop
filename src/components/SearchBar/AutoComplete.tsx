@@ -20,9 +20,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = React.forwardRef<
   const { data, isLoading } = useQuery(
     ['fetch-autocomplete', query],
     () => {
-      return axios.get(
-        `http://localhost:8000/products/autocomplete?query=${query}`
-      );
+      return axios.get(`/products/autocomplete?query=${query}`);
     },
     {
       refetchInterval: false,
@@ -73,7 +71,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = React.forwardRef<
       ref={ref}
       className={cx(
         className,
-        'flex flex-col  border rounded-b pt-3 max-h-[36rem] overflow-y-auto z-10'
+        'flex flex-col  border rounded-b pt-3 max-h-[36rem] overflow-y-auto'
       )}
     >
       {isLoading && (
@@ -82,6 +80,7 @@ const AutoComplete: React.FC<AutoCompleteProps> = React.forwardRef<
         </div>
       )}
       {!isLoading &&
+        suggestions &&
         !!suggestions.length &&
         suggestions.map(({ phrase }, i) => {
           return (

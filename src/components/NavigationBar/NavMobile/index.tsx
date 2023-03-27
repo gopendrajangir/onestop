@@ -13,14 +13,14 @@ const NavMobile: React.FC<NavMobileProps> = ({ className }) => {
   return (
     <nav
       className={cx(
-        'lg:hidden z-50 px-10 h-28 w-full flex justify-between items-center text-md bg-white border-b',
+        'lg:hidden px-5 sm:px-10 h-28 w-full flex justify-between items-center text-md bg-white border-b',
         className
       )}
     >
       <NavLink to="/">
-        <img className="w-16" src={Logo} alt="Website logo" />
+        <img className="w-12 sm:w-16" src={Logo} alt="Website logo" />
       </NavLink>
-      <SearchBar />
+      <SearchBar className="mx-3 flex-1 min-w-0 sm:w-[32rem]" />
       <Menu />
     </nav>
   );

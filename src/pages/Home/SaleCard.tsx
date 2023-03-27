@@ -26,10 +26,10 @@ const SaleCard: React.FC<SaleCardProps> = ({
       className={cx(className, 'flex gap-5 justify-between rounded-md px-10')}
     >
       <div className="flex flex-col justify-center items-start">
-        <span className="text-[1.1rem] uppercase text-orange-500 font-medium">
+        <span className="ml-2 sm:ml-0 text-[1.1rem] uppercase text-orange-500 font-medium">
           {discountLabel}
         </span>
-        <span className="mt-1 leading-tight w-max text-md font-medium capitalize text-slate-800">
+        <span className="ml-2 sm:ml-0 mt-1 leading-tight w-max text-md font-medium capitalize text-slate-800">
           {title}
         </span>
         <Button

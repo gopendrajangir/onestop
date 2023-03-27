@@ -39,7 +39,7 @@ const Menu: React.FC<MenuProps> = ({ className }) => {
     <div className={cx(className, '')}>
       <button
         className={cx(
-          'z-20 hidden w-screen lg:max-w-[1440px] h-screen bg-black bg-opacity-25 fixed top-0 left-0',
+          'hidden w-screen lg:max-w-[1440px] h-screen bg-black bg-opacity-25 fixed top-0 left-0',
           {
             '!block': showSidebar,
           }
@@ -49,7 +49,6 @@ const Menu: React.FC<MenuProps> = ({ className }) => {
       <navLinksContext.Provider
         value={{
           setShowModal: (val) => {
-            console.log('hello');
             setShowModal(val);
           },
           setNavIdx: (idx) => setNavIdx(idx),
@@ -78,7 +77,7 @@ const Menu: React.FC<MenuProps> = ({ className }) => {
             }}
           >
             <NavLinks
-              className="bg-white p-20 rounded-md"
+              className="bg-white p-20 rounded-md max-h-[calc(100vh-2rem)] overflow-y-auto"
               navItem={navData[navIdx]}
             />
           </Modal>

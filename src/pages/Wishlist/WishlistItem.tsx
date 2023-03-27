@@ -91,7 +91,7 @@ const WishlistItem: React.FC<WishlistItemProps> = ({ className, product }) => {
           dispatch(removeFromWishlist(product._id));
         }}
         className={cx(
-          'z-10 absolute top-3 right-3 w-12 h-12 fill-white rounded-full bg-slate-800 bg-opacity-80 flex items-center justify-center'
+          'absolute top-3 right-3 w-12 h-12 fill-white rounded-full bg-slate-800 bg-opacity-80 flex items-center justify-center'
         )}
       >
         <ClearIcon className="w-8 h-8 fill-inherit" />

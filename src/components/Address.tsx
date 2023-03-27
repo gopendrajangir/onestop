@@ -43,7 +43,6 @@ const Address: React.FC<AddressProps> = ({ className, address }) => {
             defaultValues={address}
             title="Add new address"
             onFormSubmit={async (data) => {
-              console.log(_id);
               await dispatch(updateAddress({ address: data, addressId: _id }));
               setShowForm(false);
             }}

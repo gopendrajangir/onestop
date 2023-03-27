@@ -88,7 +88,7 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
             />
           ) : (
             <>
-              <div className="p-12 pb-8">
+              <div className="p-5 sm:p-12 sm:pb-8">
                 <BreadCrumb
                   queryObject={queryObject}
                   analytics={products[0].analytics}
@@ -104,32 +104,6 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
                   </span>
                 </div>
               </div>
-              {filters && (
-                <div className="bg-white sticky py-4 z-30 top-0 right-0 flex justify-end pr-5 md:hidden">
-                  <button
-                    onClick={() => {
-                      setShowFilter(true);
-                    }}
-                    className="flex items-center gap-x-3 border border-slate-300 rounded-full px-5 py-2 text-xs uppercase font-medium"
-                  >
-                    <FilterIcon className="w-7 fill-slate-500" />
-                    <span className="text-slate-500">Filters</span>
-                  </button>
-                </div>
-              )}
-              {showFilter && (
-                <>
-                  <button
-                    onClick={() => {
-                      setShowFilter(false);
-                    }}
-                    className="w-screen lg:max-w-[1440px] h-screen fixed top-[7rem] left-0 bg-black bg-opacity-40 z-30"
-                  ></button>
-                  <div className="fixed z-30 top-[7rem] right-1 w-96 h-[calc(100vh-7rem)] bg-white border-l">
-                    <FiltersSidebar filters={filters.primary} />
-                  </div>
-                </>
-              )}
               <div className="flex max-h-max items-start relative md:mt-0">
                 {filters && (
                   <div className="sticky top-0 w-96 h-[calc(100vh-7rem)] hidden md:block">
@@ -141,13 +115,41 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
                   {selectedFilters && (
                     <SelectedFilters filters={selectedFilters} />
                   )}
-                  {products && <Products products={products} />}
+                  {filters && (
+                    <div className="bg-white z-10 sticky py-4 top-0 right-0 flex justify-end pr-5 md:hidden">
+                      <button
+                        onClick={() => {
+                          setShowFilter(true);
+                        }}
+                        className="flex items-center gap-x-3 border border-slate-300 rounded-full px-5 py-2 text-xs uppercase font-medium"
+                      >
+                        <FilterIcon className="w-7 fill-slate-500" />
+                        <span className="text-slate-500">Filters</span>
+                      </button>
+                    </div>
+                  )}
+                  {showFilter && (
+                    <>
+                      <button
+                        onClick={() => {
+                          setShowFilter(false);
+                        }}
+                        className="w-screen lg:max-w-[1440px] h-screen fixed top-[7rem] left-0 bg-black bg-opacity-40"
+                      ></button>
+                      <div className="fixed top-[7rem] right-1 w-96 h-[calc(100vh-7rem)] bg-white border-l">
+                        <FiltersSidebar filters={filters.primary} />
+                      </div>
+                    </>
+                  )}
+                  {products && (
+                    <Products products={products} className="p-5 sm:p-20" />
+                  )}
                   <Pagination
                     page={page}
                     limit={limit}
                     totalPages={totalPages}
                     onPageSelect={onPageSelect}
-                    className="mt-10 mb-20"
+                    className="mt-10 mb-20 px-5 sm:px-20"
                   />
                 </div>
               </div>

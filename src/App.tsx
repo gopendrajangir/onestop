@@ -25,7 +25,7 @@ function App() {
             path="/*"
             element={
               <>
-                <NavigationBar />
+                <NavigationBar className="relative z-30" />
                 <div className="h-[calc(100vh-7rem)] relative overflow-y-auto bg-white">
                   <div className="min-h-full flex flex-col">
                     <Routes>

@@ -28,7 +28,7 @@ const Toast: React.FC<ToastProps> = ({ className, id, status, message }) => {
     <div
       className={cx(
         className,
-        'toast-animate fixed top-20 left-1/2 z-50 p-4 px-6 rounded text-xs text-white font-medium shadow max-w-lg',
+        'toast-animate z-50 fixed top-20 left-1/2 p-4 px-6 rounded text-xs text-white font-medium shadow max-w-lg',
         classes
       )}
     >

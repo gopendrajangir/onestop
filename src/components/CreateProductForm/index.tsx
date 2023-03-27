@@ -56,7 +56,7 @@ const CreateProductForm: React.FC<CreateProductFormProps> = ({ className }) => {
         const token = await user.getIdToken();
 
         try {
-          await axios.post('http://localhost:8000/products', formData, {
+          await axios.post('/products', formData, {
             headers: {
               Authorization: `Bearer ${token}`,
               'Content-Type': 'multipart/form-data',

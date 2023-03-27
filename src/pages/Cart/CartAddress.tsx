@@ -26,7 +26,7 @@ const CartAddress: React.FC<CartAddressProps> = ({ className }) => {
   const selectedAddress = currentAddress ?? defaultAddress;
 
   return (
-    <div className={cx(className, '')}>
+    <div className={cx(className)}>
       {showAddressSelector && (
         <Modal
           onClose={() => {
@@ -63,19 +63,19 @@ const CartAddress: React.FC<CartAddressProps> = ({ className }) => {
         </div>
       )}
       {selectedAddress && (
-        <div className="flex text-[1.1rem] justify-between items-center border border-slate-300 p-5 text-slate-500">
-          <div className="flex flex-1 flex-col gap-y-1">
+        <div className="flex text-[1.1rem] w-full justify-between items-center border border-slate-300 p-5 text-slate-500">
+          <div className="flex flex-1 flex-col w-full min-w-0 gap-y-1">
             <div>
               Deliver to:{' '}
               <b className="text-slate-600">
                 {profile.name}, {selectedAddress.pincode}
               </b>
             </div>
-            <div className="truncate max-w-[25rem] md:max-w-[35rem] min-w-0">
+            <div className="truncate w-full min-w-0 max-w-full">
               {selectedAddress.completeAddress}
             </div>
           </div>
-          <div>
+          <div className="">
             <Button
               size="xs"
               color="primary"

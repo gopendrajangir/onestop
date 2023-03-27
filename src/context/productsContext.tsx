@@ -46,7 +46,7 @@ const ProductsContextProvider = ({ children }) => {
     ['fetch-products', searchParams.toString()],
     () => {
       return axios.post(
-        `http://localhost:8000/products/search`,
+        `/products/search`,
         {
           ...parseSearchParams(searchParams),
           includeFilters: true,

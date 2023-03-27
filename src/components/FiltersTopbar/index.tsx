@@ -25,7 +25,7 @@ const FiltersTopbar: React.FC<FiltersTopbarProps> = ({ filters }) => {
     <div className="flex flex-col w-full">
       <div
         className={cx(
-          'flex flex-wrap w-full items-center gap-3 px-4 border-b min-h-20 md:h-20 h-auto',
+          'flex flex-col-reverse items-start sm:flex-row flex-wrap w-full sm:items-center gap-3 p-5 sm:px-4 sm:p-0 border-b min-h-20 h-auto sm:h-20',
           {
             'border-none': filterKey,
           }
@@ -36,7 +36,7 @@ const FiltersTopbar: React.FC<FiltersTopbarProps> = ({ filters }) => {
           filterKey={filterKey}
           setFilterKey={setFilterKey}
         />
-        <SortBy className="ml-auto" />
+        <SortBy className="sm:ml-auto" />
       </div>
       {values && values.length && (
         <FilterValuesList values={values} filterKey={filterKey} />

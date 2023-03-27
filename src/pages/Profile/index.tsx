@@ -29,7 +29,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ({ className }) => {
   };
 
   return (
-    <div className={cx(className, 'p-16 md:p-24 lg:p-32 lg:px-80')}>
+    <div className={cx(className, 'p-5 sm:p-16 md:p-24 lg:p-32 lg:px-80')}>
       <div className="">
         <h4 className="capitalize leading-tight">Account</h4>
         <span className="text-xs">{profile.name}</span>

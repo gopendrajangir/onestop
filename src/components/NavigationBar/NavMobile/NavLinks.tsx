@@ -14,7 +14,10 @@ const NavLinks: React.FC<NavLinksProps> = ({ className, navItem }) => {
 
   return (
     <div
-      className={cx('flex gap-x-12 overflow-x-auto w-full h-full ', className)}
+      className={cx(
+        'flex flex-col md:flex-row gap-x-12 md:overflow-x-auto w-full',
+        className
+      )}
     >
       {navItem.groups.map((group, i) => {
         return (

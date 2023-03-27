@@ -15,8 +15,6 @@ interface EditProfileProps extends React.HTMLAttributes<HTMLDivElement> {
 const EditProfile: React.FC<EditProfileProps> = ({ className, profile }) => {
   const { phone } = profile;
 
-  console.log(profile);
-
   return (
     <div className={cx(className, 'px-10 py-5')}>
       <h4 className="capitalize leading-tight">Edit Profile</h4>

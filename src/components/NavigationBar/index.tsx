@@ -10,8 +10,8 @@ interface NavigationBarProps extends React.HTMLAttributes<HTMLDivElement> {}
 const NavigationBar: React.FC<NavigationBarProps> = ({ className }) => {
   return (
     <>
-      <NavDesktop />
-      <NavMobile />
+      <NavDesktop className={className} />
+      <NavMobile className={className} />
     </>
   );
 };

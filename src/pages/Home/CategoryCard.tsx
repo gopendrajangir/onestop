@@ -27,10 +27,10 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
       }}
       className={cx(
         className,
-        'flex flex-col items-center gap-5 rounded-md px-10 group'
+        'flex flex-col items-center gap-5 rounded-md group'
       )}
     >
-      <div className="w-36 h-36 overflow-hidden rounded-full flex items-center justify-center">
+      <div className="w-40 h-40 sm:w-36 sm:h-36 overflow-hidden rounded-full flex items-center justify-center">
         <ProgressiveImage
           className="w-full h-full transition-all group group-hover:scale-110 rounded-full object-cover"
           src={img}

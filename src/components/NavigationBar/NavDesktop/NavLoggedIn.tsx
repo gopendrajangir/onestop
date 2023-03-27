@@ -25,7 +25,7 @@ const NavLoggedIn: React.FC<NavLoggedInProps> = ({
 
   return (
     <div className="flex gap-x-8 font-medium h-full">
-      <div className="flex justify-center items-center gap-x-2 relative group z-20 px-4">
+      <div className="flex justify-center items-center gap-x-2 relative group px-4">
         <div className="hidden group-hover:block h-1.5 w-full bg-orange-500 absolute bottom-0"></div>
         <div className="flex flex-col items-center text-end text-slate-700 text-xs">
           <UserIcon className="w-6 mb-0.5 fill-slate-700" />

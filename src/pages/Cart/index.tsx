@@ -44,10 +44,10 @@ const Cart: React.FC<CartProps> = ({ className }) => {
     <div className={cx(className, 'flex flex-1 justify-center')}>
       {loading && <PageLoader />}
       {!!cart.items.length && (
-        <div className="flex gap-10 flex-col md:flex-row px-10 md:px-0">
-          <div className="flex flex-col gap-y-6 mt-10 md:mt-0 md:py-10 md:min-h-full">
-            <CartAddress className="" />
-            <div className="flex items-center justify-between px-5 py-4">
+        <div className="flex gap-10 flex-col md:flex-row justify-center px-5 md:px-0 w-full">
+          <div className="flex flex-col gap-y-6 mt-10 md:mt-0 md:py-10 md:min-h-full w-full md:w-[52rem]">
+            <CartAddress className="w-full" />
+            <div className="flex items-center justify-between px-5 py-4 w-full">
               <div className="flex gap-5">
                 <button
                   onClick={() => {
@@ -77,11 +77,11 @@ const Cart: React.FC<CartProps> = ({ className }) => {
                 <MoveToWishlistButton cartItems={selectedItems} />
               </div>
             </div>
-            <div className="flex flex-col gap-y-7">
+            <div className="flex flex-col gap-y-7 w-full">
               {cart.items.map((cartItem) => {
                 return (
                   <CartItem
-                    className="max-w-[52rem] p-5"
+                    className="w-full p-5"
                     key={cartItem._id}
                     cartItem={cartItem}
                   />

@@ -25,7 +25,7 @@ const Carousel: React.FC<CarouselProps> = ({ className, images }) => {
           />
         </div>
         {idx !== 0 && (
-          <div className="z-10 flex items-center absolute top-0 ml-2  left-0 h-full">
+          <div className="flex items-center absolute top-0 ml-2  left-0 h-full">
             <button
               onClick={() => {
                 setIdx(idx - 1);
@@ -37,7 +37,7 @@ const Carousel: React.FC<CarouselProps> = ({ className, images }) => {
           </div>
         )}
         {idx !== images.length - 1 && (
-          <div className="z-10 flex items-center absolute top-0 mr-2 right-0 h-full">
+          <div className="flex items-center absolute top-0 mr-2 right-0 h-full">
             <button
               className="w-12 h-12 rounded-full bg-slate-800 bg-opacity-80 flex items-center justify-center"
               onClick={() => {

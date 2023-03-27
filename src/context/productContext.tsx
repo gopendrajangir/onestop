@@ -46,7 +46,7 @@ const ProductContextProvider = ({ children }) => {
   const { data, isLoading, error } = useQuery(
     ['fetch-product', id],
     () => {
-      return axios.get(`http://localhost:8000/products/${id}`);
+      return axios.get(`/products/${id}`);
     },
     {
       refetchInterval: false,

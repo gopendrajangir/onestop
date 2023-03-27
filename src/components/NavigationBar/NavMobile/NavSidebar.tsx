@@ -24,7 +24,7 @@ const NavSidebar: React.FC<NavSidebarProps> = ({ className, close }) => {
     <div
       className={cx(
         className,
-        'fixed z-20 top-0 right-0 w-[24rem] bg-slate-50 flex flex-col shadow-lg h-screen border-l border-l-slate-200'
+        'fixed top-0 right-0 w-[24rem] bg-slate-50 flex flex-col shadow-lg h-screen border-l border-l-slate-200'
       )}
     >
       <div className="h-[7rem] flex items-center justify-between px-8 border-b">
@@ -36,7 +36,7 @@ const NavSidebar: React.FC<NavSidebarProps> = ({ className, close }) => {
         </button>
       </div>
       <CategoriesLinks className="mt-10" />
-      <Hr />
+      <Hr className="mt-10" />
       <div className="p-8">
         {!profile && (
           <Button

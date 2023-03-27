@@ -19,7 +19,7 @@ const Signup: React.FC<SignupProps> = ({
   setConfirmationResult,
   confirmationResult,
 }) => {
-  const { register, setValue, handleSubmit, formState } = useForm();
+  const { register, setValue, setError, handleSubmit, formState } = useForm();
   const [phoneNumber, setPhoneNumber] = useState();
 
   const { errors, isSubmitting } = formState;
@@ -40,7 +40,7 @@ const Signup: React.FC<SignupProps> = ({
           setConfirmationResult(confirmationResult);
         } catch (err: any) {
           console.log(err.message);
-          // setError('phone', { message: 'Some error occured' });
+          setError('phone', { message: 'Some error occured' });
         }
       })}
     >

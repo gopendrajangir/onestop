@@ -22,14 +22,14 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <div
       className={cx(
-        'flex flex-wrap gap-4 text-xs text-slate-700 px-20',
+        'flex gap-10 sm:gap-4 text-xs text-slate-700 flex-col sm:flex-row',
         className
       )}
     >
       <span className="self-center">
         Page {page} of {totalPages}
       </span>
-      <div className="flex-1 flex gap-5 flex-wrap justify-center">
+      <div className="flex-1 flex gap-5 justify-center items-center">
         {page > 1 && (
           <button
             className="border h-16 px-4 w-40 mx-auto border-slate-300 hover:border-slate-500"
@@ -38,7 +38,7 @@ const Pagination: React.FC<PaginationProps> = ({
             Previous
           </button>
         )}
-        <div className="flex flex-wrap gap-4 self-stretch mx-auto">
+        <div className="flex flex-wrap justify-center gap-4 self-stretch mx-auto">
           {pages.map((pageNumber, i) => {
             return (
               <button

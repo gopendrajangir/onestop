@@ -53,10 +53,7 @@ const SortBy: React.FC<SortByProps> = ({ className }) => {
 
   return (
     <div
-      className={cx(
-        className,
-        'relative text-xs w-96 group z-10 hover:shadow-lg'
-      )}
+      className={cx(className, 'relative text-xs w-96 group hover:shadow-lg')}
     >
       <div className="w-full flex items-center gap-x-2 border h-16 px-4">
         <span>Sort by :</span>
@@ -67,7 +64,7 @@ const SortBy: React.FC<SortByProps> = ({ className }) => {
         </span>
         <ChevronDownIcon className="ml-auto h-6 w-6 fill-slate-400" />
       </div>
-      <div className="flex-col absolute top-full border border-t-0 w-full bg-white hidden group-hover:flex">
+      <div className="flex-col z-20 absolute top-full border border-t-0 w-full bg-white hidden group-hover:flex">
         {Object.keys(sortItems).map((key) => {
           return (
             <SortItem
