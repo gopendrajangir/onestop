@@ -17,11 +17,10 @@ interface FiltersSidebarProps extends React.HTMLAttributes<HTMLDivElement> {
   filters: Filters;
 }
 
-const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
-  filters,
-  className,
-  ...props
-}) => {
+const FiltersSidebar: React.FC<FiltersSidebarProps> = React.forwardRef<
+  HTMLDivElement,
+  FiltersSidebarProps
+>(({ filters, className, ...props }, ref) => {
   const [searchParams] = useSearchParams();
 
   const navigate = useNavigate();
@@ -40,6 +39,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
 
   return (
     <div
+      ref={ref}
       className={cx(
         className,
         'w-96 h-full flex flex-col flex-shrink-0 bg-white'
@@ -79,6 +79,6 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
       </div>
     </div>
   );
-};
+});
 
 export default FiltersSidebar;

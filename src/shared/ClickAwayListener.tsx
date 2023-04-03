@@ -2,7 +2,6 @@ import React, { RefObject, useEffect, useRef } from 'react';
 import useClickAwayListener from 'hooks/useClickAwayListener';
 
 interface ClickAwayListenerProps extends React.HTMLAttributes<HTMLElement> {
-  shouldShow?: boolean;
   avoidableRef?: RefObject<HTMLElement>;
   onClickAway?: () => void;
 }
@@ -24,15 +23,10 @@ const ClickAwayListener: React.FC<ClickAwayListenerProps> = ({
     setShow(true);
   }, []);
 
-  return (
-    <>
-      {!!show &&
-        React.Children.only(
-          React.cloneElement(children as React.ReactElement, {
-            ref: childrenRef,
-          })
-        )}
-    </>
+  return React.Children.only(
+    React.cloneElement(children as React.ReactElement, {
+      ref: childrenRef,
+    })
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes, useNavigate } from 'react-router-dom';
 
 import CartPage from 'pages/Cart';
 import PageLoader from 'shared/PageLoader';
@@ -15,14 +15,18 @@ interface AuthenticatedRoutesProps
 const AuthenticatedRoutes: React.FC<AuthenticatedRoutesProps> = ({
   className,
 }) => {
-  const profile = useAppSelector((state) => state.profile.profile);
+  const { isAuthenticated, isAuthenticating } = useContext(authContext);
 
-  if (!profile && profile !== null) {
-    return <PageLoader />;
+  if (isAuthenticating) {
+    return (
+      <div className="h-[calc(100vh-7rem)]">
+        <PageLoader />
+      </div>
+    );
   }
 
-  if (profile === null) {
-    return null;
+  if (!isAuthenticated) {
+    return <Navigate to="/" />;
   }
 
   return (

@@ -13,7 +13,7 @@ const EmptyCart: React.FC<EmptyCartProps> = ({ className }) => {
     <div
       className={cx(
         className,
-        'flex flex-col justify-center items-center w-full h-full'
+        'flex flex-col justify-center items-center w-full h-[calc(100vh-7rem)]'
       )}
     >
       <BagIcon className="h-40 w-40 fill-slate-400 mb-10 rotate-12" />
@@ -25,8 +25,7 @@ const EmptyCart: React.FC<EmptyCartProps> = ({ className }) => {
       </p>
       <Button
         onClick={() => navigate('/auth/wishlist')}
-        className="border-violet-500 hover:border-violet-400 text-violet-500 hover:text-violet-400 font-medium mt-10"
-        variant="outline"
+        className="bg-transparent border border-violet-500 hover:border-violet-400 !text-violet-500 hover:!text-violet-400 font-medium mt-10"
       >
         Add items from wishlist
       </Button>

@@ -8,20 +8,31 @@ interface ProgressiveImageProps extends React.HTMLAttributes<HTMLImageElement> {
   loaderClassName?: string;
 }
 
+function isCached(src) {
+  var image = new Image();
+  image.src = src;
+
+  return image.complete;
+}
+
 const ProgressiveImage: React.FC<ProgressiveImageProps> = ({
   className,
   loaderClassName,
   src,
   alt,
 }) => {
-  const [loadedSrc, setLoadedSrc] = useState<null | string>();
+  const [loadedSrc, setLoadedSrc] = useState<null | string>(
+    isCached(src) ? src : null
+  );
 
   useEffect(() => {
-    const image = new Image();
-    image.src = src;
-    image.onload = () => {
-      setLoadedSrc(src);
-    };
+    if (!loadedSrc) {
+      const image = new Image();
+      image.src = src;
+      image.onload = () => {
+        setLoadedSrc(src);
+      };
+    }
   }, [src]);
 
   return (

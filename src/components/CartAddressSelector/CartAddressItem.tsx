@@ -25,7 +25,7 @@ const CartAddressItem: React.FC<CartAddressItemProps> = ({
       }}
       className={cx(
         className,
-        'flex text-start gap-x-3 w-[35rem] text-xs border border-slate-300 p-5 hover:bg-slate-50'
+        'flex text-start gap-x-3 min-w-0 max-w-[35rem] text-xs border border-slate-300 p-5 hover:bg-slate-50'
       )}
     >
       <div className="pt-1">

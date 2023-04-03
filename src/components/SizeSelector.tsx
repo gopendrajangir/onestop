@@ -4,6 +4,7 @@ import Button from 'shared/Button';
 import ProductHeader from 'shared/ProductHeader';
 import Hr from 'shared/Hr';
 import Sizes from './Sizes';
+import AnimatedError from 'shared/AnimatedError';
 
 interface SizeSelectorProps extends React.HTMLAttributes<HTMLDivElement> {
   onDone: (skuId: string) => void;
@@ -20,6 +21,7 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
   image,
 }) => {
   const [newSkuId, setNewSkuId] = useState<string>();
+  const [isTouched, setIsTouched] = useState(false);
 
   skuId = newSkuId ?? skuId;
 
@@ -48,15 +50,31 @@ const SizeSelector: React.FC<SizeSelectorProps> = ({
       />
       <Hr className="my-8" />
       <h5 className="mb-8">Select Size</h5>
+      {!newSkuId && isTouched && (
+        <AnimatedError className="mb-5" message="Please select a size" />
+      )}
       <Sizes
         className="max-w-full"
         selectedSize={skuId}
+        shake={!newSkuId && isTouched}
         skus={skus}
         setSelectedSize={(_id) => {
           setNewSkuId(_id);
         }}
       />
-      <Button onClick={() => onDone(skuId)} className="mt-10">
+      <Button
+        onClick={() => {
+          if (skuId && !newSkuId) {
+            onDone(skuId);
+            return;
+          }
+          setIsTouched(true);
+          if (newSkuId) {
+            onDone(newSkuId);
+          }
+        }}
+        className="mt-10"
+      >
         Done
       </Button>
     </div>

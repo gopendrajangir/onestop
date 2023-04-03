@@ -26,7 +26,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ className }) => {
     clearTimeout(timer);
     const t = setTimeout(() => {
       setShowAutoComplete(true);
-    }, 1000);
+    }, 500);
     setTimer(t);
   }, [timer]);
 

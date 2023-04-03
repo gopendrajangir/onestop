@@ -101,6 +101,7 @@ const OTPForm: React.FC<OTPFormProps> = ({
                 numInputs={6}
                 separator={<div className="flex justify-center"></div>}
                 shouldAutoFocus
+                isInputNum
                 containerStyle="w-[24rem] justify-between"
                 focusStyle="border border-slate-700"
                 inputStyle="!w-[3.5rem] h-[3.5rem] text-[1.6rem] outline-none"

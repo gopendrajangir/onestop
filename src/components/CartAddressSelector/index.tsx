@@ -33,7 +33,10 @@ const CartAddressSelector: React.FC<CartAddressSelectorProps> = ({
 
   return (
     <div
-      className={cx(className, 'bg-white rounded-md flex flex-col relative')}
+      className={cx(
+        className,
+        'w-full bg-white rounded-md flex flex-col relative'
+      )}
     >
       <h5 className="p-6 px-8">Change Delivery Address</h5>
       <Hr className="my-0" />
@@ -50,11 +53,11 @@ const CartAddressSelector: React.FC<CartAddressSelectorProps> = ({
       {!showForm && (
         <div className="flex flex-col gap-5 max-h-[35rem] overflow-auto p-10 pt-8">
           {addresses.map((address) => {
-            return <CartAddressItem address={address} />;
+            return <CartAddressItem key={address._id} address={address} />;
           })}
           {
             <Button
-              className="flex-shrink-0"
+              className="flex-shrink-0 min-w-[25rem]"
               onClick={() => {
                 setShowForm(true);
               }}

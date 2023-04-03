@@ -47,7 +47,12 @@ const ProductThumbnail: React.FC<ProductThumbnailProps> = ({ product }) => {
       albums[0].images.map((image) => {
         return {
           ...image,
-          imageURL: resizeImageUrl(image.src, 260, null, 90),
+          imageURL: resizeImageUrl(
+            image.src,
+            document.body.clientWidth < 640 ? 460 : 260,
+            null,
+            90
+          ),
         };
       }),
     []
@@ -63,7 +68,7 @@ const ProductThumbnail: React.FC<ProductThumbnailProps> = ({ product }) => {
         <NavLink to={`/product/${_id}`} className="flex w-full relative ">
           <ProgressiveImage
             key={`active-${images[0].imageURL}`}
-            className={cx('w-full aspect-[3/4]', {
+            className={cx('w-full aspect-[3/4] bg-orange-200', {
               hidden: isSliderActive && images.length > 1,
             })}
             src={images[0].imageURL}

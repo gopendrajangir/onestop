@@ -19,7 +19,7 @@ const HomePage: React.FC<HomePageProps> = (props) => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-amber-50">
+    <div className="bg-amber-50 sm:bg-white">
       <div className="p-5 sm:p-20">
         <div className="flex gap-5 flex-col lg:flex-row">
           <div className="flex-1 bg-teal-400 flex gap-5 border rounded-md px-10 lg:px-20 pt-12 justify-between">

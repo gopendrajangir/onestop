@@ -19,6 +19,14 @@ const wishlistSlice = createSlice({
     updateWishlist: (state, action) => {
       state.wishlist = action.payload;
     },
+    addItems: (state, action) => {
+      action.payload.forEach((item) => {
+        if (!state.wishlist.items.some(({ _id }) => _id === item._id)) {
+          state.wishlist.items.push(item);
+        }
+      })
+      state.wishlist = { ...state.wishlist };
+    },
     removeWishlist: (state, action) => {
       state.wishlist = null;
     }

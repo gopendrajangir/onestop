@@ -1,4 +1,9 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  HashRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from 'react-router-dom';
 
 import NavigationBar from './components/NavigationBar';
 
@@ -15,6 +20,50 @@ import { ProductContextProvider } from 'context/productContext';
 
 import AuthenticatedRoutes from 'routes/AuthenticatedRoutes';
 import Footer from 'components/Footer';
+import { useEffect, useRef } from 'react';
+
+function Container() {
+  const location = useLocation();
+
+  const containerRef = useRef<HTMLDivElement>();
+
+  useEffect(() => {
+    if (containerRef.current) containerRef.current.scrollTo(0, 0);
+  }, [location]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="h-[calc(100vh-7rem)] relative overflow-y-auto bg-white"
+    >
+      <div className="min-h-full flex flex-col">
+        <Routes>
+          <Route path="" element={<HomePage />} />
+          <Route path="login/*" element={<LoginPage />} />
+          <Route
+            path="search"
+            element={
+              <ProductsContextProvider>
+                <SearchPage />
+              </ProductsContextProvider>
+            }
+          />
+          <Route
+            path="product/:id"
+            element={
+              <ProductContextProvider>
+                <ProductPage />
+              </ProductContextProvider>
+            }
+          />
+          <Route path="auth/*" element={<AuthenticatedRoutes />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </div>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -26,33 +75,7 @@ function App() {
             element={
               <>
                 <NavigationBar className="relative z-30" />
-                <div className="h-[calc(100vh-7rem)] relative overflow-y-auto bg-white">
-                  <div className="min-h-full flex flex-col">
-                    <Routes>
-                      <Route path="" element={<HomePage />} />
-                      <Route path="login/*" element={<LoginPage />} />
-                      <Route
-                        path="search"
-                        element={
-                          <ProductsContextProvider>
-                            <SearchPage />
-                          </ProductsContextProvider>
-                        }
-                      />
-                      <Route
-                        path="product/:id"
-                        element={
-                          <ProductContextProvider>
-                            <ProductPage />
-                          </ProductContextProvider>
-                        }
-                      />
-                      <Route path="auth/*" element={<AuthenticatedRoutes />} />
-                      <Route path="*" element={<PageNotFound />} />
-                    </Routes>
-                  </div>
-                  <Footer />
-                </div>
+                <Container />
                 <Toasts />
               </>
             }

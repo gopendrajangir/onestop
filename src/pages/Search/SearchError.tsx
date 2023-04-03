@@ -22,8 +22,8 @@ const SearchError: React.FC<SearchErrorProps> = ({
     >
       <img className="h-64" src={SearchErrorImg} alt={'Search Error Image'} />
       <div className="flex items-center gap-x-3">
-        <h4>{errorCode}</h4>
-        <p className="text-[1.4rem]">{message}</p>
+        <h4 className="bg-amber-100 mr-1 p-2">{errorCode}</h4>
+        <p className="text-[1.4rem] max-w-[40rem]">{message}</p>
       </div>
     </div>
   );

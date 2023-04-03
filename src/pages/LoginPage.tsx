@@ -7,7 +7,7 @@ interface LoginPageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const LoginPage: React.FC<LoginPageProps> = (props) => {
   return (
-    <div className="bg-slate-100 min-h-screen flex justify-center items-center py-24">
+    <div className="bg-slate-100 min-h-[calc(100vh-7rem)] flex justify-center items-start sm:items-center py-24">
       <div className="flex rounded-[0.5rem] overflow-hidden shadow-lg border">
         <div className="relative hidden md:flex justify-center items-center">
           <img

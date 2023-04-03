@@ -29,6 +29,7 @@ const CartAddress: React.FC<CartAddressProps> = ({ className }) => {
     <div className={cx(className)}>
       {showAddressSelector && (
         <Modal
+          modalClass="w-[calc(100vw-2rem)] sm:w-auto"
           onClose={() => {
             setShowAddressSelector(false);
           }}

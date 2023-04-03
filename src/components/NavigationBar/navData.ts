@@ -2,71 +2,72 @@ export default [
   {
     "title": "men",
     "textColor": "text-red-500",
+    "link": "/search?query=T-Shirts&ftg=Men",
     "borderColor": "hover:border-red-500",
     "gender": "men",
     "groups": [
       [
         {
           "type": "topwear",
-          "link": "/search?query=topwear&ftg=men",
+          "link": "/search?query=jackets&ftg=Men",
           "items": [
             {
               "text": "T-Shirts",
-              "link": "/search?query=T-Shirts&ftg=men"
+              "link": "/search?query=T-Shirts&ftg=Men"
             },
             {
               "text": "casual shirts",
-              "link": "/search?query=casual shirts&ftg=men"
+              "link": "/search?query=casual shirts&ftg=Men"
             },
             {
               "text": "formal shirts",
-              "link": "/search?query=formal shirts&ftg=men"
+              "link": "/search?query=formal shirts&ftg=Men"
             },
             {
               "text": "sweatshirts",
-              "link": "/search?query=sweatshirts&ftg=men"
+              "link": "/search?query=sweatshirts&ftg=Men"
             },
             {
               "text": "sweaters",
-              "link": "/search?query=sweaters&ftg=men"
+              "link": "/search?query=sweaters&ftg=Men"
             },
             {
               "text": "jackets",
-              "link": "/search?query=jackets&ftg=men"
+              "link": "/search?query=jackets&ftg=Men"
             },
             {
               "text": "blazers & coats",
-              "link": "/search?query=blazers %26 coats&ftg=men"
+              "link": "/search?query=blazers %26 coats&ftg=Men"
             },
             {
               "text": "suits",
-              "link": "/search?query=suits&ftg=men"
+              "link": "/search?query=suits&ftg=Men"
             },
             {
               "text": "rain jackets",
-              "link": "/search?query=rain jackets&ftg=men"
+              "link": "/search?query=rain jackets&ftg=Men"
             }
           ]
         },
         {
           "type": "indian & festive wear",
-          "link": "/search?query=indian %26 festive wear&ftg=men",
+          "link": "/search?query=indian %26 festive wear&ftg=Men",
           "items": [
             {
               "text": "kurtas & kurta sets",
-              "link": "/search?query=kurtas %26 kurta sets&ftg=men"
+              "link": "/search?query=kurtas %26 kurta sets&ftg=Men"
             },
             {
               "text": "sherwanis",
-              "link": "/search?query=sherwanis&ftg=men"
+              "link": "/search?query=sherwanis&ftg=Men"
             },
             {
               "text": "nehru jackets",
-              "link": "/search?query=nehru jackets&ftg=men"
+              "link": "/search?query=nehru jackets&ftg=Men"
             },
             {
               "text": "dhotis",
-              "link": "/search?query=dhotis&ftg=men"
+              "link": "/search?query=dhotis&ftg=Men"
             }
           ]
         }
@@ -74,53 +75,53 @@ export default [
       [
         {
           "type": "bottomwear",
-          "link": "/search?query=bottomwear&ftg=men",
+          "link": "/search?query=bottomwear&ftg=Men",
           "items": [
             {
               "text": "jeans",
-              "link": "/search?query=jeans&ftg=men"
+              "link": "/search?query=jeans&ftg=Men"
             },
             {
               "text": "casual trousers",
-              "link": "/search?query=casual trousers&ftg=men"
+              "link": "/search?query=casual trousers&ftg=Men"
             },
             {
               "text": "formal trousers",
-              "link": "/search?query=formal trousers&ftg=men"
+              "link": "/search?query=formal trousers&ftg=Men"
             },
             {
               "text": "shorts",
-              "link": "/search?query=shorts&ftg=men"
+              "link": "/search?query=shorts&ftg=Men"
             },
             {
               "text": "track pants & joggers",
-              "link": "/search?query=track pants %26 joggers&ftg=men"
+              "link": "/search?query=track pants %26 joggers&ftg=Men"
             }
           ]
         },
         {
           "type": "innerwear & sleepwear",
-          "link": "/search?query=innerwear&ftg=men",
+          "link": "/search?query=innerwear&ftg=Men",
           "items": [
             {
               "text": "briefs & trunks",
-              "link": "/search?query=briefs %26 trunks&ftg=men"
+              "link": "/search?query=briefs %26 trunks&ftg=Men"
             },
             {
               "text": "boxers",
-              "link": "/search?query=boxers&ftg=men"
+              "link": "/search?query=boxers&ftg=Men"
             },
             {
               "text": "vests",
-              "link": "/search?query=vests&ftg=men"
+              "link": "/search?query=vests&ftg=Men"
             },
             {
               "text": "nightwear & loungewear",
-              "link": "/search?query=nightwear %26 loungewear&ftg=men"
+              "link": "/search?query=nightwear %26 loungewear&ftg=Men"
             },
             {
               "text": "thermals",
-              "link": "/search?query=thermals&ftg=men"
+              "link": "/search?query=thermals&ftg=Men"
             }
           ]
         }
@@ -128,41 +129,41 @@ export default [
       [
         {
           "type": "footwear",
-          "link": "/search?query=footwear&ftg=men",
+          "link": "/search?query=footwear&ftg=Men",
           "items": [
             {
               "text": "casual shoes",
-              "link": "/search?query=casual shoes&ftg=men"
+              "link": "/search?query=casual shoes&ftg=Men"
             },
             {
               "text": "sports shoes",
-              "link": "/search?query=sports shoes&ftg=men"
+              "link": "/search?query=sports shoes&ftg=Men"
             },
             {
               "text": "formal shoes",
-              "link": "/search?query=formal shoes&ftg=men"
+              "link": "/search?query=formal shoes&ftg=Men"
             },
             {
               "text": "sneakers",
-              "link": "/search?query=sneakers&ftg=men"
+              "link": "/search?query=sneakers&ftg=Men"
             },
             {
               "text": "sandals & floaters",
-              "link": "/search?query=sandals %26 floaters&ftg=men"
+              "link": "/search?query=sandals %26 floaters&ftg=Men"
             },
             {
               "text": "flip flops",
-              "link": "/search?query=flip flops&ftg=men"
+              "link": "/search?query=flip flops&ftg=Men"
             },
             {
               "text": "socks",
-              "link": "/search?query=socks&ftg=men"
+              "link": "/search?query=socks&ftg=Men"
             }
           ]
         },
         {
           "type": "personal care & grooming",
-          "link": "/search?query=personal care&ftg=men",
+          "link": "/search?query=personal care&ftg=Men",
           "items": []
         },
         {
@@ -172,7 +173,7 @@ export default [
         },
         {
           "type": "watches",
-          "link": "/search?query=watches&ftg=men",
+          "link": "/search?query=watches&ftg=Men",
           "items": []
         }
       ],
@@ -183,27 +184,27 @@ export default [
           "items": [
             {
               "text": "sports shoes",
-              "link": "/search?query=sports shoes&ftg=men"
+              "link": "/search?query=sports shoes&ftg=Men"
             },
             {
               "text": "sports sandals",
-              "link": "/search?query=sports sandals&ftg=men"
+              "link": "/search?query=sports sandals&ftg=Men"
             },
             {
               "text": "active t-Shirts",
-              "link": "/search?query=active t-Shirts&ftg=men"
+              "link": "/search?query=active t-Shirts&ftg=Men"
             },
             {
               "text": "track pants & shorts",
-              "link": "/search?query=track pants %26 shorts&ftg=men"
+              "link": "/search?query=track pants %26 shorts&ftg=Men"
             },
             {
               "text": "tracksuits",
-              "link": "/search?query=tracksuits&ftg=men"
+              "link": "/search?query=tracksuits&ftg=Men"
             },
             {
               "text": "jackets & sweatshirts",
-              "link": "/search?query=jackets %26 sweatshirts&ftg=men"
+              "link": "/search?query=jackets %26 sweatshirts&ftg=Men"
             },
             {
               "text": "sports accessories",
@@ -211,7 +212,7 @@ export default [
             },
             {
               "text": "swimwear",
-              "link": "/search?query=swimwear&ftg=men"
+              "link": "/search?query=swimwear&ftg=Men"
             }
           ]
         }
@@ -219,51 +220,51 @@ export default [
       [
         {
           "type": "Fashion Accessories",
-          "link": "/search?query=fashioin accessories&ftg=men",
+          "link": "/search?query=fashioin accessories&ftg=Men",
           "items": [
             {
               "text": "Wallets",
-              "link": "/search?query=Wallets&ftg=men"
+              "link": "/search?query=Wallets&ftg=Men"
             },
             {
               "text": "Belts",
-              "link": "/search?query=Belts&ftg=men"
+              "link": "/search?query=Belts&ftg=Men"
             },
             {
               "text": "Perfumes & Body Mists",
-              "link": "/search?query=Perfumes %26 Body Mists&ftg=men"
+              "link": "/search?query=Perfumes %26 Body Mists&ftg=Men"
             },
             {
               "text": "Trimmers",
-              "link": "/search?query=Trimmers&ftg=men"
+              "link": "/search?query=Trimmers&ftg=Men"
             },
             {
               "text": "Deodorants",
-              "link": "/search?query=Deodorants&ftg=men"
+              "link": "/search?query=Deodorants&ftg=Men"
             },
             {
               "text": "Ties, Cufflinks & Pocket Squares",
-              "link": "/search?query=Ties, Cufflinks %26 Pocket Squares&ftg=men"
+              "link": "/search?query=Ties, Cufflinks %26 Pocket Squares&ftg=Men"
             },
             {
               "text": "Accessory Gift Sets",
-              "link": "/search?query=Accessory Gift Sets&ftg=men"
+              "link": "/search?query=Accessory Gift Sets&ftg=Men"
             },
             {
               "text": "Caps & Hats",
-              "link": "/search?query=Caps %26 Hats&ftg=men"
+              "link": "/search?query=Caps %26 Hats&ftg=Men"
             },
             {
               "text": "Mufflers, Scarves & Gloves",
-              "link": "/search?query=Mufflers, Scarves %26 Gloves&ftg=men"
+              "link": "/search?query=Mufflers, Scarves %26 Gloves&ftg=Men"
             },
             {
               "text": "Rings & Wristwear",
-              "link": "/search?query=Rings %26 Wristwear&ftg=men"
+              "link": "/search?query=Rings %26 Wristwear&ftg=Men"
             },
             {
               "text": "Helmets",
-              "link": "/search?query=Helmets&ftg=men"
+              "link": "/search?query=Helmets&ftg=Men"
             }
           ]
         },
@@ -277,6 +278,7 @@ export default [
   },
   {
     "title": "women",
+    "link": "/search?query=ethnic wear&ftg=Women",
     "textColor": "text-pink-500",
     "borderColor": "hover:border-pink-500",
     "gender": "women",
@@ -284,55 +286,55 @@ export default [
       [
         {
           "type": "indian & fusion wear",
-          "link": "/search?query=indian %26 fusion wear&ftg=women",
+          "link": "/search?query=indian %26 fusion wear&ftg=Women",
           "items": [
             {
               "text": "kurtas & suits",
-              "link": "/search?query=kurtas %26 suits&ftg=women"
+              "link": "/search?query=kurtas %26 suits&ftg=Women"
             },
             {
               "text": "kurtis, tunics & tops",
-              "link": "/search?query=kurtis&ftg=women"
+              "link": "/search?query=kurtis&ftg=Women"
             },
             {
               "text": "sarees",
-              "link": "/search?query=sarees&ftg=women"
+              "link": "/search?query=sarees&ftg=Women"
             },
             {
               "text": "ethnic wear",
-              "link": "/search?query=ethnic wear&ftg=women"
+              "link": "/search?query=ethnic wear&ftg=Women"
             },
             {
               "text": "leggings",
-              "link": "/search?query=leggings&ftg=women"
+              "link": "/search?query=leggings&ftg=Women"
             },
             {
               "text": "salwars",
-              "link": "/search?query=salwars&ftg=women"
+              "link": "/search?query=salwars&ftg=Women"
             },
             {
               "text": "churidars",
-              "link": "/search?query=churidars&ftg=women"
+              "link": "/search?query=churidars&ftg=Women"
             },
             {
               "text": "skirts",
-              "link": "/search?query=skirts&ftg=women"
+              "link": "/search?query=skirts&ftg=Women"
             },
             {
               "text": "palazzos",
-              "link": "/search?query=palazzos&ftg=women"
+              "link": "/search?query=palazzos&ftg=Women"
             },
             {
               "text": "lehenga cholis",
-              "link": "/search?query=lehenga cholis&ftg=women"
+              "link": "/search?query=lehenga cholis&ftg=Women"
             },
             {
               "text": "dupattas & shawls",
-              "link": "/search?query=dupattas %26 shawls&ftg=women"
+              "link": "/search?query=dupattas %26 shawls&ftg=Women"
             },
             {
               "text": "jackets",
-              "link": "/search?query=jackets&ftg=women"
+              "link": "/search?query=jackets&ftg=Women"
             }
           ]
         }
@@ -340,59 +342,59 @@ export default [
       [
         {
           "type": "western wear",
-          "link": "/search?query=western wear&ftg=women",
+          "link": "/search?query=western wear&ftg=Women",
           "items": [
             {
               "text": "dresses",
-              "link": "/search?query=dresses&ftg=women"
+              "link": "/search?query=dresses&ftg=Women"
             },
             {
               "text": "tops",
-              "link": "/search?query=tops&ftg=women"
+              "link": "/search?query=tops&ftg=Women"
             },
             {
               "text": "tshirts",
-              "link": "/search?query=tshirts&ftg=women"
+              "link": "/search?query=tshirts&ftg=Women"
             },
             {
               "text": "jeans",
-              "link": "/search?query=jeans&ftg=women"
+              "link": "/search?query=jeans&ftg=Women"
             },
             {
               "text": "trousers & capris",
-              "link": "/search?query=trousers %26 capris&ftg=women"
+              "link": "/search?query=trousers %26 capris&ftg=Women"
             },
             {
               "text": "shorts & skirts",
-              "link": "/search?query=shorts %26 skirts&ftg=women"
+              "link": "/search?query=shorts %26 skirts&ftg=Women"
             },
             {
               "text": "co-ords",
-              "link": "/search?query=co-ords&ftg=women"
+              "link": "/search?query=co-ords&ftg=Women"
             },
             {
               "text": "playsuits",
-              "link": "/search?query=playsuits&ftg=women"
+              "link": "/search?query=playsuits&ftg=Women"
             },
             {
               "text": "jumpsuits",
-              "link": "/search?query=jumpsuits&ftg=women"
+              "link": "/search?query=jumpsuits&ftg=Women"
             },
             {
               "text": "shrugs",
-              "link": "/search?query=shrugs&ftg=women"
+              "link": "/search?query=shrugs&ftg=Women"
             },
             {
               "text": "sweaters & sweatshirts",
-              "link": "/search?query=sweaters %26 sweatshirts&ftg=women"
+              "link": "/search?query=sweaters %26 sweatshirts&ftg=Women"
             },
             {
               "text": "jackets & coats",
-              "link": "/search?query=jackets %26 coats&ftg=women"
+              "link": "/search?query=jackets %26 coats&ftg=Women"
             },
             {
               "text": "blazers & waistcoats",
-              "link": "/search?query=blazers %26 waistcoats&ftg=women"
+              "link": "/search?query=blazers %26 waistcoats&ftg=Women"
             }
           ],
         },
@@ -400,7 +402,7 @@ export default [
       [
         {
           "type": "maternity",
-          "link": "/search?query=maternity&ftg=women",
+          "link": "/search?query=maternity&ftg=Women",
           "items": []
         },
         {
@@ -410,19 +412,19 @@ export default [
         },
         {
           "type": "footwear",
-          "link": "/search?query=footwear&ftg=women",
+          "link": "/search?query=footwear&ftg=Women",
           "items": [
             {
               "text": "flats",
-              "link": "/search?query=flats&ftg=women"
+              "link": "/search?query=flats&ftg=Women"
             },
             {
               "text": "casual shoes",
-              "link": "/search?query=casual shoes&ftg=women"
+              "link": "/search?query=casual shoes&ftg=Women"
             },
             {
               "text": "heels",
-              "link": "/search?query=heels&ftg=women"
+              "link": "/search?query=heels&ftg=Women"
             },
             {
               "text": "boots",
@@ -430,21 +432,21 @@ export default [
             },
             {
               "text": "sports shoes & floaters",
-              "link": "/search?query=sports shoes & floaters&ftg=women"
+              "link": "/search?query=sports shoes & floaters&ftg=Women"
             },
           ]
         },
         {
           "type": "sports and active wear",
-          "link": "/search?query=sports and active wear&ftg=women",
+          "link": "/search?query=sports and active wear&ftg=Women",
           "items": [
             {
               "text": "clothing",
-              "link": "/search?query=sports clothing&ftg=women"
+              "link": "/search?query=sports clothing&ftg=Women"
             },
             {
               "text": "sports shoes",
-              "link": "/search?query=sports shoes&ftg=women"
+              "link": "/search?query=sports shoes&ftg=Women"
             },
             {
               "text": "sports accessories",
@@ -464,53 +466,53 @@ export default [
           "items": [
             {
               "text": "bra",
-              "link": "/search?query=bra&ftg=women"
+              "link": "/search?query=bra&ftg=Women"
             },
             {
               "text": "briefs",
-              "link": "/search?query=briefs&ftg=women"
+              "link": "/search?query=briefs&ftg=Women"
             },
             {
               "text": "shapewear",
-              "link": "/search?query=shapewear&ftg=women"
+              "link": "/search?query=shapewear&ftg=Women"
             },
             {
               "text": "nightwear & loungewear",
-              "link": "/search?query=nightwear %26 loungewear&ftg=women"
+              "link": "/search?query=nightwear %26 loungewear&ftg=Women"
             },
             {
               "text": "swimwear",
-              "link": "/search?query=swimwear&ftg=women"
+              "link": "/search?query=swimwear&ftg=Women"
             },
             {
               "text": "camisoles & thermals",
-              "link": "/search?query=camisoles %26 thermals&ftg=women"
+              "link": "/search?query=camisoles %26 thermals&ftg=Women"
             },
           ]
         },
         {
           "type": "beauty & personal care",
-          "link": "/search?query=personal care&ftg=women",
+          "link": "/search?query=personal care&ftg=Women",
           "items": [
             {
               "text": "makeup",
-              "link": "/search?query=makeup&ftg=women"
+              "link": "/search?query=makeup&ftg=Women"
             },
             {
               "text": "skincare",
-              "link": "/search?query=skincare&ftg=women"
+              "link": "/search?query=skincare&ftg=Women"
             },
             {
               "text": "premium beauty",
-              "link": "/search?query=premium beauty&ftg=women"
+              "link": "/search?query=premium beauty&ftg=Women"
             },
             {
               "text": "lipsticks",
-              "link": "/search?query=lipsticks&ftg=women"
+              "link": "/search?query=lipsticks&ftg=Women"
             },
             {
               "text": "fragrances",
-              "link": "/search?query=fragrances&ftg=women"
+              "link": "/search?query=fragrances&ftg=Women"
             },
           ]
         }
@@ -518,19 +520,19 @@ export default [
       [
         {
           "type": "Jewellery",
-          "link": "/search?query=jewellery&ftg=women",
+          "link": "/search?query=jewellery&ftg=Women",
           "items": [
             {
               "text": "fashion jewellery",
-              "link": "/search?query=fashion jewellery&ftg=women"
+              "link": "/search?query=fashion jewellery&ftg=Women"
             },
             {
               "text": "fine jewellery",
-              "link": "/search?query=fine jewellery&ftg=women"
+              "link": "/search?query=fine jewellery&ftg=Women"
             },
             {
               "text": "earrings",
-              "link": "/search?query=earrings&ftg=women"
+              "link": "/search?query=earrings&ftg=Women"
             },
           ]
         },
@@ -544,6 +546,7 @@ export default [
   },
   {
     "title": "kids",
+    "link": "/search?query=kids",
     "textColor": "text-orange-500",
     "borderColor": "hover:border-orange-500",
     "gender": "kids",
@@ -778,6 +781,7 @@ export default [
   },
   {
     "title": "home & living",
+    "link": "/search?query=home %26 living",
     "textColor": "text-yellow-500",
     "borderColor": "hover:border-yellow-500",
     "groups": [
@@ -1042,6 +1046,7 @@ export default [
   },
   {
     "title": "beauty",
+    "link": "/search?query=beauty",
     "textColor": "text-teal-500",
     "borderColor": "hover:border-teal-500",
     "groups": [
@@ -1236,7 +1241,7 @@ export default [
         },
         {
           "type": "men's grooming",
-          "link": "/search?query=grooming&ftg=men",
+          "link": "/search?query=grooming&ftg=Men",
           "items": [
             {
               text: "trimmers",

@@ -41,7 +41,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
     <form
       className={cx(
         className,
-        'bg-white p-10 gap-y-5 flex flex-col w-[40rem] rounded'
+        'bg-white p-10 gap-y-5 flex flex-col w-full sm:w-[40rem] rounded'
       )}
       onSubmit={handleSubmit(async (data) => {
         await onFormSubmit(data);

@@ -75,6 +75,23 @@ export interface IDiscount {
   discountPercent?: number
 }
 
+export interface IProductMedia {
+  videos:
+  {
+    id: string;
+    host: string;
+    view: string;
+    title: string | null;
+    description: string | null;
+    url: string;
+    album: string;
+  }[];
+  albums: {
+    name: string;
+    images: IImage[]
+  }[]
+}
+
 export interface IProduct {
   _id: string;
   name: string;
@@ -107,22 +124,7 @@ export interface IProduct {
   expiryDate?: string | null;
   analytics: IAnalytics;
   master?: string;
-  media: {
-    videos:
-    {
-      id: string;
-      host: string;
-      view: string;
-      title: string | null;
-      description: string | null;
-      url: string;
-      album: string;
-    }[];
-    albums: {
-      name: string;
-      images: IImage[]
-    }[]
-  };
+  media: IProductMedia;
   mrp: number;
   discount?: IDiscount | null;
   sizes: {
@@ -149,10 +151,23 @@ export interface ReviewImage {
   image: string;
 }
 
+export interface ICartProduct {
+  _id: string;
+  name: string;
+  brand: { name: string, image: string },
+  media: IProductMedia;
+  mrp: number;
+  discount?: {
+    label?: string;
+    discountPercent?: number;
+  },
+  skus: ISku[]
+}
+
 export interface ICartItem {
   _id: string;
-  sku: any;
-  product: any;
+  sku: ISku;
+  product: ICartProduct;
   quantity: number;
   selected: boolean;
 }
@@ -163,10 +178,23 @@ export interface ICart {
   items: ICartItem[]
 }
 
+export interface IWishlistItem {
+  _id: string;
+  name: string;
+  brand: { name: string, image: string },
+  mrp: number;
+  media: IProductMedia;
+  discount?: {
+    label?: string;
+    discountPercent?: number;
+  },
+  skus: ISku[]
+}
+
 export interface IWishlist {
   _id: string;
   userId: string;
-  items: any[]
+  items: IWishlistItem[]
 }
 
 

@@ -22,7 +22,7 @@ const onFilterSelect: (
         searchParams.filters.text[key] = searchParams.filters.text[
           key
         ].filter((value) => {
-          if (_id === value) {
+          if (_id.toLowerCase() === value.toLowerCase()) {
             return false;
           }
           return true;

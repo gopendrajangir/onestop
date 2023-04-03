@@ -28,6 +28,7 @@ const Addresses: React.FC<AddressesProps> = ({ className, addresses }) => {
     <div className={cx(className, 'px-10 py-5')}>
       {showForm && (
         <Modal
+          modalClass="w-[calc(100vw-2rem)] sm:w-auto"
           onClose={() => {
             setShowForm(false);
           }}

@@ -6,7 +6,7 @@ import HeartOIcon from 'assets/img/icons/heart-o.svg';
 import UserIcon from 'assets/img/icons/user.svg';
 
 import { auth } from 'utils/firebaseAuth';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useAppSelector } from 'hooks/useAppSelector';
 import Hr from 'shared/Hr';
 import Button from 'shared/Button';
@@ -23,6 +23,8 @@ const NavLoggedIn: React.FC<NavLoggedInProps> = ({
 }) => {
   const cart = useAppSelector((state) => state.cart.cart);
   const wishlist = useAppSelector((state) => state.wishlist.wishlist);
+
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col w-full gap-8 font-medium uppercase text-sm">
@@ -53,9 +55,11 @@ const NavLoggedIn: React.FC<NavLoggedInProps> = ({
             to="/auth/profile"
             className="normal-case flex flex-col mt-3 self-start"
           >
-            <span className="font-bold leading-none">
-              Hello {displayName.split(' ')[0]}
-            </span>
+            {displayName && (
+              <span className="font-bold leading-none">
+                Hello {displayName.split(' ')[0]}
+              </span>
+            )}
             <span>{phoneNumber.split('+91')[1]}</span>
           </NavLink>
         </div>
@@ -64,6 +68,7 @@ const NavLoggedIn: React.FC<NavLoggedInProps> = ({
         className="rounded-md"
         onClick={() => {
           signOut(auth);
+          navigate('/');
         }}
         size="xs"
       >

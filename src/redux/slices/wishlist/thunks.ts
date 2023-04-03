@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { IWishlist } from "common/types";
+import { IWishlist, IWishlistItem } from "common/types";
 
 const errorToastDispatcher = (err, dispatch) => {
   if (axios.isAxiosError(err)) {
@@ -34,17 +34,22 @@ export const fetchWishlist = createAsyncThunk<IWishlist, never, { rejectValue: s
   }
 });
 
-export const moveToCart = createAsyncThunk<IWishlist, { productId: string, skuId: string }, { rejectValue: string }>('wishlist/moveToCart', async ({ productId, skuId }, { dispatch }) => {
+export const moveToCart = createAsyncThunk<string, { productId: string, skuId: string }, { rejectValue: string }>('wishlist/moveToCart', async ({ productId, skuId }, { dispatch }) => {
   try {
     const response = await axios.patch(`/wishlists/${productId}/moveToCart`, {
       skuId
     })
 
-    const wishlist = response.data.wishlist;
+    const { cartItem, increased } = response.data;
 
-    dispatch({
-      type: 'cart/updateCart', payload: response.data.cart
-    })
+    if (increased)
+      dispatch({
+        type: 'cart/updateCartItem', payload: cartItem
+      })
+    else
+      dispatch({
+        type: 'cart/addCartItem', payload: cartItem
+      })
 
     dispatch({
       type: 'toast/addToast', payload: {
@@ -53,17 +58,17 @@ export const moveToCart = createAsyncThunk<IWishlist, { productId: string, skuId
       }
     })
 
-    return wishlist;
+    return productId;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const addToWishlist = createAsyncThunk<IWishlist, string, { rejectValue: string }>('wishlist/addItem', async (productId, { dispatch }) => {
+export const addToWishlist = createAsyncThunk<IWishlistItem, string, { rejectValue: string }>('wishlist/addItem', async (productId, { dispatch }) => {
   try {
     const response = await axios.patch(`/wishlists/${productId}`)
 
-    const wishlist = response.data.wishlist;
+    const wishlistItem = response.data.wishlistItem;
 
     dispatch({
       type: 'toast/addToast', payload: {
@@ -72,17 +77,15 @@ export const addToWishlist = createAsyncThunk<IWishlist, string, { rejectValue: 
       }
     })
 
-    return wishlist;
+    return wishlistItem;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const removeFromWishlist = createAsyncThunk<IWishlist, string, { rejectValue: string }>('wishlist/removeItem', async (productId, { dispatch }) => {
+export const removeFromWishlist = createAsyncThunk<string, string, { rejectValue: string }>('wishlist/removeItem', async (productId, { dispatch }) => {
   try {
-    const response = await axios.delete(`/wishlists/${productId}`)
-
-    const wishlist = response.data.wishlist;
+    await axios.delete(`/wishlists/${productId}`)
 
     dispatch({
       type: 'toast/addToast', payload: {
@@ -91,17 +94,15 @@ export const removeFromWishlist = createAsyncThunk<IWishlist, string, { rejectVa
       }
     })
 
-    return wishlist;
+    return productId;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const removeAllFromWishlist = createAsyncThunk<IWishlist, never, { rejectValue: string }>('wishlist/removeAllItems', async (arg, { dispatch }) => {
+export const removeAllFromWishlist = createAsyncThunk<boolean, never, { rejectValue: string }>('wishlist/removeAllItems', async (arg, { dispatch }) => {
   try {
-    const response = await axios.delete(`/wishlists/removeAllFromWishlist`);
-
-    const wishlist = response.data.wishlist;
+    await axios.delete(`/wishlists/removeAllFromWishlist`);
 
     dispatch({
       type: 'toast/addToast', payload: {
@@ -110,7 +111,7 @@ export const removeAllFromWishlist = createAsyncThunk<IWishlist, never, { reject
       }
     })
 
-    return wishlist;
+    return true;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }

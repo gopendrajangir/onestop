@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { ICart } from "common/types";
+import { ICart, ICartItem } from "common/types";
 
 const errorToastDispatcher = (err, dispatch) => {
   if (axios.isAxiosError(err)) {
@@ -22,13 +22,22 @@ const errorToastDispatcher = (err, dispatch) => {
   throw err;
 }
 
-export const addToCart = createAsyncThunk<ICart, string, { rejectValue: string }>('cart/addItem', async (skuId, { dispatch }) => {
+export const fetchCart = createAsyncThunk<ICart, never, { rejectValue: string }>('cart/fetchCart', async (arg, { dispatch }) => {
+  try {
+    const response = await axios.get('/carts')
+    return response.data.cart;
+  } catch (err) {
+    errorToastDispatcher(err, dispatch);
+  }
+});
+
+export const addToCart = createAsyncThunk<ICartItem, string, { rejectValue: string }>('cart/addItem', async (skuId, { dispatch }) => {
   try {
     const response = await axios.patch('/carts', {
       skuId
     })
 
-    const { cart, increased } = response.data
+    const { cartItem, increased } = response.data
 
     dispatch({
       type: 'toast/addToast', payload: {
@@ -37,21 +46,20 @@ export const addToCart = createAsyncThunk<ICart, string, { rejectValue: string }
       }
     })
 
-    return cart;
+    return cartItem;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const moveToWishlist = createAsyncThunk<ICart, { productId: string, skuId: string }[], { rejectValue: string }>('cart/moveToWishlist', async (skus, { dispatch }) => {
+export const moveToWishlist = createAsyncThunk<string[], { productId: string, skuId: string }[], { rejectValue: string }>('cart/moveToWishlist', async (skus, { dispatch }) => {
   try {
     const response = await axios.patch(`/carts/moveToWishlist`, {
       skus
     });
-    const cart = response.data.cart;
 
     dispatch({
-      type: 'wishlist/updateWishlist', payload: response.data.wishlist
+      type: 'wishlist/addItems', payload: response.data.wishlistItems
     })
 
     dispatch({
@@ -61,15 +69,15 @@ export const moveToWishlist = createAsyncThunk<ICart, { productId: string, skuId
       }
     })
 
-    return cart;
+    return skus.map(({ skuId }) => skuId);
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const removeFromCart = createAsyncThunk<ICart, string, { rejectValue: string }>('cart/removeItem', async (skuId, { dispatch }) => {
+export const removeFromCart = createAsyncThunk<string, string, { rejectValue: string }>('cart/removeItem', async (skuId, { dispatch }) => {
   try {
-    const response = await axios.delete(`/carts/${skuId}`);
+    await axios.delete(`/carts/${skuId}`);
 
     dispatch({
       type: 'toast/addToast', payload: {
@@ -78,15 +86,15 @@ export const removeFromCart = createAsyncThunk<ICart, string, { rejectValue: str
       }
     })
 
-    return response.data.cart;
+    return skuId;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const removeMultiplesFromCart = createAsyncThunk<ICart, string[], { rejectValue: string }>('cart/removeMultiples', async (skuIds, { dispatch }) => {
+export const removeMultiplesFromCart = createAsyncThunk<string[], string[], { rejectValue: string }>('cart/removeMultiples', async (skuIds, { dispatch }) => {
   try {
-    const response = await axios.delete(`/carts/removeMultiples`, {
+    await axios.delete(`/carts/removeMultiples`, {
       data: {
         skuIds
       }
@@ -99,82 +107,74 @@ export const removeMultiplesFromCart = createAsyncThunk<ICart, string[], { rejec
       }
     })
 
-    return response.data.cart;
+    return skuIds;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const selectItem = createAsyncThunk<ICart, string, { rejectValue: string }>('cart/selectItem', async (skuId, { dispatch }) => {
+export const selectItem = createAsyncThunk<string, string, { rejectValue: string }>('cart/selectItem', async (skuId, { dispatch }) => {
   try {
-    const response = await axios.patch(`/carts/${skuId}/selectItem`, {
+    await axios.patch(`/carts/${skuId}/selectItem`, {
       shouldSelect: true
     });
-    return response.data.cart;
+    return skuId;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const unSelectItem = createAsyncThunk<ICart, string, { rejectValue: string }>('cart/unSelectItem', async (skuId, { dispatch }) => {
+export const unSelectItem = createAsyncThunk<string, string, { rejectValue: string }>('cart/unSelectItem', async (skuId, { dispatch }) => {
   try {
-    const response = await axios.patch(`/carts/${skuId}/selectItem`, {
+    await axios.patch(`/carts/${skuId}/selectItem`, {
       shouldSelect: false
     });
-    return response.data.cart;
+    return skuId;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const selectAllItems = createAsyncThunk<ICart, never, { rejectValue: string }>('cart/selectAllItems', async (arg, { dispatch }) => {
+export const selectAllItems = createAsyncThunk<null, never, { rejectValue: string }>('cart/selectAllItems', async (arg, { dispatch }) => {
   try {
-    const response = await axios.patch(`/carts/selectAllItems`, {
+    await axios.patch(`/carts/selectAllItems`, {
       shouldSelect: true
     });
-    return response.data.cart;
+    return null;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const unSelectAllItems = createAsyncThunk<ICart, never, { rejectValue: string }>('cart/unSelectAllItems', async (arg, { dispatch }) => {
+export const unSelectAllItems = createAsyncThunk<null, never, { rejectValue: string }>('cart/unSelectAllItems', async (arg, { dispatch }) => {
   try {
-    const response = await axios.patch(`/carts/selectAllItems`, {
+    await axios.patch(`/carts/selectAllItems`, {
       shouldSelect: false
     });
-    return response.data.cart;
+    return null;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const fetchCart = createAsyncThunk<ICart, never, { rejectValue: string }>('cart/fetchCart', async (arg, { dispatch }) => {
-  try {
-    const response = await axios.get('/carts')
-    return response.data.cart;
-  } catch (err) {
-    errorToastDispatcher(err, dispatch);
-  }
-});
 
-export const changeQuantity = createAsyncThunk<ICart, { skuId: string, quantity: number }, { rejectValue: string }>('cart/changeQuantity', async ({ skuId, quantity }, { dispatch }) => {
+export const changeQuantity = createAsyncThunk<ICartItem, { skuId: string, quantity: number }, { rejectValue: string }>('cart/changeQuantity', async ({ skuId, quantity }, { dispatch }) => {
   try {
     const response = await axios.patch(`/carts/${skuId}`, {
       quantity
     });
-    return response.data.cart;
+    return response.data.cartItem;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }
 });
 
-export const changeSku = createAsyncThunk<ICart, { skuId: string, newSkuId: string }, { rejectValue: string }>('cart/changeSku', async ({ skuId, newSkuId }, { dispatch }) => {
+export const changeSku = createAsyncThunk<ICartItem, { skuId: string, newSkuId: string }, { rejectValue: string }>('cart/changeSku', async ({ skuId, newSkuId }, { dispatch }) => {
   try {
     const response = await axios.patch(`/carts/${skuId}`, {
       newSkuId
     });
-    return response.data.cart;
+    return response.data.cartItem;
   } catch (err) {
     errorToastDispatcher(err, dispatch);
   }

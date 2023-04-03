@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import cx from 'classnames';
 
 import HeartOIcon from 'assets/img/icons/heart-o.svg';
@@ -26,17 +26,21 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({
   const wishlist = useAppSelector((state) => state.wishlist.wishlist);
   const loading = useAppSelector((state) => state.wishlist.loading);
 
+  const [currentLoading, setCurrentLoading] = useState(false);
+
   const dispatch = useAppDispatch();
 
   const wishlisted =
     wishlist && wishlist.items.some(({ _id }) => _id === productId);
 
-  const onClick = () => {
+  const onClick = async () => {
+    setCurrentLoading(true);
     if (wishlisted) {
-      dispatch(removeFromWishlist(productId));
+      await dispatch(removeFromWishlist(productId));
     } else {
-      dispatch(addToWishlist(productId));
+      await dispatch(addToWishlist(productId));
     }
+    setCurrentLoading(false);
   };
 
   return (
@@ -51,7 +55,7 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({
         className
       )}
       variant="outline"
-      loading={loading}
+      loading={currentLoading && loading}
       {...props}
     >
       {wishlisted ? (

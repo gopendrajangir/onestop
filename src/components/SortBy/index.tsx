@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import cx from 'classnames';
 
@@ -14,6 +14,7 @@ import SortItem from './SortItem';
 interface SortByProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const SortBy: React.FC<SortByProps> = ({ className }) => {
+  const [hovered, setHovered] = useState(false);
   const [params] = useSearchParams();
 
   const searchParams = parseSearchParams(params);
@@ -54,6 +55,12 @@ const SortBy: React.FC<SortByProps> = ({ className }) => {
   return (
     <div
       className={cx(className, 'relative text-xs w-96 group hover:shadow-lg')}
+      onMouseOver={() => {
+        setHovered(true);
+      }}
+      onMouseLeave={() => {
+        setHovered(false);
+      }}
     >
       <div className="w-full flex items-center gap-x-2 border h-16 px-4">
         <span>Sort by :</span>
@@ -64,13 +71,23 @@ const SortBy: React.FC<SortByProps> = ({ className }) => {
         </span>
         <ChevronDownIcon className="ml-auto h-6 w-6 fill-slate-400" />
       </div>
-      <div className="flex-col z-20 absolute top-full border border-t-0 w-full bg-white hidden group-hover:flex">
+      <div
+        className={cx(
+          'flex-col z-20 absolute top-full border border-t-0 w-full bg-white hidden',
+          {
+            '!flex': hovered,
+          }
+        )}
+      >
         {Object.keys(sortItems).map((key) => {
           return (
             <SortItem
               key={key}
               selected={key === selected}
-              onSelect={() => onSelect(key)}
+              onSelect={() => {
+                setHovered(false);
+                onSelect(key);
+              }}
               title={sortItems[key]}
             />
           );

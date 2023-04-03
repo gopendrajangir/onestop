@@ -22,6 +22,7 @@ const ProductImages: React.FC<ProductImagesProps> = ({ className, images }) => {
     <>
       {showZoomer && (
         <Modal
+          className="z-40"
           onClose={() => setShowZoomer(false)}
           closeButtonPosition="top-right"
         >

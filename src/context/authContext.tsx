@@ -13,16 +13,19 @@ import { removeProfile } from 'redux/slices/profile/slice';
 
 interface AuthContextType {
   isAuthenticated: boolean;
+  isAuthenticating: boolean;
 }
 
 const authDefualtValue: AuthContextType = {
   isAuthenticated: false,
+  isAuthenticating: false,
 };
 
 const authContext = React.createContext<AuthContextType>(authDefualtValue);
 
 const AuthContextProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
 
   const dispatch = useAppDispatch();
 
@@ -31,11 +34,15 @@ const AuthContextProvider = ({ children }) => {
       if (user) {
         axios.defaults.headers.common['Authorization'] =
           'Bearer ' + (await user.getIdToken());
+
+        setIsAuthenticated(true);
         await dispatch(fetchProfile());
         await dispatch(fetchCart());
         await dispatch(fetchWishlist());
         setIsAuthenticated(true);
+        setIsAuthenticating(false);
       } else {
+        axios.defaults.headers.common['Authorization'] = null;
         dispatch(removeCart(null));
         dispatch(removeWishlist(null));
         dispatch(removeProfile(null));
@@ -51,7 +58,7 @@ const AuthContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <authContext.Provider value={{ isAuthenticated }}>
+    <authContext.Provider value={{ isAuthenticated, isAuthenticating }}>
       {children}
     </authContext.Provider>
   );

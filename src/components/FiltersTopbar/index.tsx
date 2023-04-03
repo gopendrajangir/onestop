@@ -11,7 +11,10 @@ interface FiltersTopbarProps extends React.HTMLAttributes<HTMLDivElement> {
   filters: Filters;
 }
 
-const FiltersTopbar: React.FC<FiltersTopbarProps> = ({ filters }) => {
+const FiltersTopbar: React.FC<FiltersTopbarProps> = ({
+  filters,
+  className,
+}) => {
   const [filterKey, setFilterKey] = useState<null | string>();
 
   let values;
@@ -22,7 +25,7 @@ const FiltersTopbar: React.FC<FiltersTopbarProps> = ({ filters }) => {
   }
 
   return (
-    <div className="flex flex-col w-full">
+    <div className={cx('flex flex-col w-full', className)}>
       <div
         className={cx(
           'flex flex-col-reverse items-start sm:flex-row flex-wrap w-full sm:items-center gap-3 p-5 sm:px-4 sm:p-0 border-b min-h-20 h-auto sm:h-20',

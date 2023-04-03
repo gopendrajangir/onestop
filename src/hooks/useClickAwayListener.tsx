@@ -9,21 +9,25 @@ function useClickAwayListener(
 
   const bodyClickListener = useCallback(
     (e: MouseEvent) => {
+      if (!show) return;
+
       let target = e.target as Element;
 
       while (target != null) {
         if (
           target === menuRef.current ||
-          (avoidableRef.current && avoidableRef.current === target)
+          (avoidableRef &&
+            avoidableRef.current &&
+            avoidableRef.current === target)
         ) {
           return;
         }
         target = target.parentElement;
       }
-      cb();
+      if (cb) cb();
       setShow(false);
     },
-    [show, setShow]
+    [show]
   );
 
   useEffect(() => {

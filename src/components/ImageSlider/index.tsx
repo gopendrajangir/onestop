@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import cx from 'classnames';
 
 import './image-slider.scss';
+import ProgressiveImage from 'shared/ProgressiveImage';
 
 interface ImageSliderProps extends React.HTMLAttributes<HTMLDivElement> {
   images: { imageURL: string }[];
@@ -57,16 +58,24 @@ const ImageSlider: React.FC<ImageSliderProps> = ({
     <div className={cx(className, 'w-full flex overflow-x-hidden')}>
       {activeIndex === -1 ? (
         <>
-          <img className="w-full" src={images[0].imageURL} alt="slide" />
-          <img className="w-full" src={images[1].imageURL} alt="slide" />
+          <ProgressiveImage
+            className="w-full aspect-[3/4]"
+            src={images[0].imageURL}
+            alt="slide"
+          />
+          <ProgressiveImage
+            className="w-full"
+            src={images[1].imageURL}
+            alt="slide"
+          />
         </>
       ) : (
         <>
           {imgs.map((i) => {
             return (
-              <img
+              <ProgressiveImage
                 key={new Date().getTime() + images[i].imageURL}
-                className="w-full image-slide"
+                className="w-full aspect-[3/4] image-slide"
                 src={images[i].imageURL}
                 alt="slide"
               />

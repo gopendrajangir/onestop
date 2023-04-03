@@ -1,7 +1,9 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import cx from 'classnames';
 import axios from 'axios';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
+import ClearIcon from 'assets/img/icons/clear.svg';
 import FilterIcon from 'assets/img/icons/tune.svg';
 
 import SearchError from './SearchError';
@@ -19,10 +21,11 @@ import {
   parseSearchParams,
   stringifySearchParams,
 } from 'utils/searchParamsUtils';
+import ClickAwayListener from 'shared/ClickAwayListener';
 
 interface SearchPageProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const SearchPage: React.FC<SearchPageProps> = (props) => {
+const SearchPage: React.FC<SearchPageProps> = ({ className }) => {
   const [searchParams] = useSearchParams();
   const [showFilter, setShowFilter] = useState(false);
 
@@ -47,8 +50,6 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
       ? Math.floor(total / limit)
       : Math.floor(total / limit) + 1;
 
-  const containerRef = useRef<HTMLDivElement>();
-
   const navigate = useNavigate();
 
   const onPageSelect = (page) => {
@@ -72,12 +73,8 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
     );
   }
 
-  useEffect(() => {
-    if (containerRef.current) containerRef.current.scrollTo(0, 0);
-  }, [products]);
-
   return (
-    <div ref={containerRef}>
+    <div className={cx(className)}>
       {isLoading && <PageLoader />}
       {products && (
         <>
@@ -88,7 +85,7 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
             />
           ) : (
             <>
-              <div className="p-5 sm:p-12 sm:pb-8">
+              <div className="p-5 sm:p-12 sm:pb-8 w-full">
                 <BreadCrumb
                   queryObject={queryObject}
                   analytics={products[0].analytics}
@@ -110,13 +107,13 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
                     <FiltersSidebar filters={filters.primary} />
                   </div>
                 )}
-                <div className="">
+                <div className="w-full">
                   {filters && <FiltersTopbar filters={filters.secondary} />}
                   {selectedFilters && (
                     <SelectedFilters filters={selectedFilters} />
                   )}
                   {filters && (
-                    <div className="bg-white z-10 sticky py-4 top-0 right-0 flex justify-end pr-5 md:hidden">
+                    <div className="bg-white z-10 sticky py-4 -top-1 right-0 flex justify-end pr-5 md:hidden">
                       <button
                         onClick={() => {
                           setShowFilter(true);
@@ -130,14 +127,27 @@ const SearchPage: React.FC<SearchPageProps> = (props) => {
                   )}
                   {showFilter && (
                     <>
-                      <button
+                      {/* <button
                         onClick={() => {
                           setShowFilter(false);
                         }}
-                        className="w-screen lg:max-w-[1440px] h-screen fixed top-[7rem] left-0 bg-black bg-opacity-40"
-                      ></button>
-                      <div className="fixed top-[7rem] right-1 w-96 h-[calc(100vh-7rem)] bg-white border-l">
-                        <FiltersSidebar filters={filters.primary} />
+                        className="z-10 w-screen lg:max-w-[1440px] h-screen fixed top-[7rem] left-0 bg-black bg-opacity-40"
+                      ></button> */}
+                      <div className="z-10 fixed top-[7rem] right-1 w-96 h-[calc(100vh-7rem)] bg-white border-l">
+                        <button
+                          onClick={() => setShowFilter(false)}
+                          className="absolute top-2 -left-14 rounded-full bg-slate-200 p-2"
+                        >
+                          <ClearIcon className="w-8" />
+                        </button>
+                        <ClickAwayListener
+                          onClickAway={() => setShowFilter(false)}
+                        >
+                          <FiltersSidebar
+                            className="shadow-lg"
+                            filters={filters.primary}
+                          />
+                        </ClickAwayListener>
                       </div>
                     </>
                   )}

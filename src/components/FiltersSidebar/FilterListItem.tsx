@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import cx from 'classnames';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -23,11 +23,16 @@ const FilterListItem: React.FC<FilterListItemProps> = ({
   filter,
   isRadio,
 }) => {
+  const [currentSelected, setCurrentSelected] = useState<boolean>();
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
 
   const { isLoading } = useContext(productsContext);
   const { _id, selected, count } = filter;
+
+  useEffect(() => {
+    setCurrentSelected(selected);
+  }, [selected]);
 
   let range;
 
@@ -40,6 +45,7 @@ const FilterListItem: React.FC<FilterListItemProps> = ({
       key={_id}
       className="flex text-start items-center text-[1.3rem] font-light gap-x-3"
       onClick={() => {
+        setCurrentSelected(selected);
         if (!isLoading) {
           onFilterSelect(
             searchParams,
@@ -53,7 +59,7 @@ const FilterListItem: React.FC<FilterListItemProps> = ({
         }
       }}
     >
-      <CheckBox selected={selected} isRadio={isRadio} />
+      <CheckBox selected={currentSelected} isRadio={isRadio} />
       {filterKey === 'baseColor' &&
         (_id === 'Multi' ? (
           <img
